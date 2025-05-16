@@ -1,0 +1,31 @@
+services:
+  - type: web
+    name: cn334-backend
+    env: docker
+    plan: free
+    region: singapore
+    dockerfilePath: Backend/Dockerfile
+    envVars:
+      - key: POSTGRES_DB
+        value: <ชื่อ database จาก Render>
+      - key: POSTGRES_USER
+        value: <user จาก Render>
+      - key: POSTGRES_PASSWORD
+        value: <password จาก Render>
+      - key: POSTGRES_HOST
+        value: <hostname จาก Render เช่น dpg-xxx.render.com>
+      - key: POSTGRES_PORT
+        value: 5432
+      - key: SECRET_KEY
+        value: <secret ของคุณ>
+
+  - type: web
+    name: cn334-frontend
+    env: docker
+    region: singapore
+    dockerfilePath: Frontend/Dockerfile
+    plan: free
+    envVars:
+      - key: NEXT_PUBLIC_API_URL
+        value: https://cn334-backend.onrender.com/api
+
