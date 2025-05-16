@@ -2,8 +2,8 @@ services:
   - type: web
     name: cn334-backend
     env: docker
-    dockerfilePath: Backend/Dockerfile
-    buildFilterPath: Backend
+    dockerfilePath: backend/Dockerfile   # ✅ ชี้ไปที่ตำแหน่งใหม่
+    buildFilterPath: backend             # ✅ ใช้ backend เป็น context
     envVars:
       - key: POSTGRES_DB
         value: postgres_cn334_final_project
