@@ -10,7 +10,7 @@ SECRET_KEY = 'django-insecure-r-iv&ksfr*427&f&&)5o^x0l$mh4%#)ljh(&(+jn-o71+0(wsa
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['SheetHub-frontend', 'localhost', '127.0.0.1']
 
 
 # Application definition
