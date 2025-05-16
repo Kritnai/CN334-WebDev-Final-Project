@@ -76,6 +76,9 @@ DATABASES = {
         'PASSWORD': os.environ.get("POSTGRES_PASSWORD", "aeafa3YAzIeYMxees6adnY22EEY8TVOC"),
         'HOST': os.environ.get("POSTGRES_HOST", "dpg-d0jjbp63jp1c73a0gm7g-a.singapore-postgres.render.com"),
         'PORT': os.environ.get("POSTGRES_PORT", "5432"),
+        'OPTIONS': {
+            'sslmode': 'require'
+        }
     }
 }
 
