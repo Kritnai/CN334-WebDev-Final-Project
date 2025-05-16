@@ -20,11 +20,11 @@ services:
       - key: SECRET_KEY
         value: thisIsSecretKEY555
 
-  - type: web
-    name: cn334-frontend
-    env: docker
-    dockerfilePath: Frontend/Dockerfile
-    buildFilterPath: Frontend                  #  สำคัญสำหรับ frontend ด้วยเช่นกัน
-    envVars:
-      - key: NEXT_PUBLIC_API_URL
-        value: https://cn334-backend.onrender.com/api
+  # - type: web
+  #   name: cn334-frontend
+  #   env: docker
+  #   dockerfilePath: Frontend/Dockerfile
+  #   buildFilterPath: Frontend                  #  สำคัญสำหรับ frontend ด้วยเช่นกัน
+  #   envVars:
+  #     - key: NEXT_PUBLIC_API_URL
+  #       value: https://cn334-backend.onrender.com/api
