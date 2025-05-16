@@ -6,8 +6,7 @@ export const WHITE_COLOR = "#FFFFFF";
 export const RED_COLOR = "#EE7E50";
 
 // ใช้ environment variable
-// export const API_IP = process.env.NEXT_PUBLIC_API_URL || 'http://127.0.0.1:8000';
-export const API_IP = process.env.NEXT_PUBLIC_API_URL || 'https://sheethub-backend.onrender.com';
+export const API_IP = 'https://sheethub-backend.onrender.com';
 
 export const CONFIG = () => {
   if (typeof window === 'undefined') return {}; // ป้องกัน SSR
