@@ -11,8 +11,8 @@ COPY ./backend/requirements.txt ./requirements.txt
 RUN pip install --no-cache-dir -r requirements.txt
 
 # คัดลอก source code ทั้ง backend + app
-COPY ./backend ./backend
-COPY ./sheets_service ./sheets_service
+COPY ./backend/backend ./backend/backend
+COPY ./sheets_service/sheets_service ./sheets_service/sheets_service
 
 WORKDIR /app/backend
 
