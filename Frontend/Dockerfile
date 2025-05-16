@@ -10,6 +10,9 @@ RUN npm install
 # Copy project files
 COPY . .
 
+# # ก่อน build
+# COPY .env.production .env.production
+
 # Build Next.js project
 RUN npm run build
 

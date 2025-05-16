@@ -191,8 +191,8 @@ export default function Dashboard() {
                 .download-button {
                     display: none;
                     position: absolute;
-                    top: 50%;
-                    left: 50%;
+                    top: 20%;
+                    left: 20%;
                     transform: translate(-50%, -50%);
                     scale: 0.4;
                     background-color: rgba(255, 255, 255, 0.9);

@@ -4,13 +4,17 @@ import os
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
 
+STATIC_URL = '/static/'
+STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')  # สำหรับ collectstatic
+STATICFILES_DIRS = [os.path.join(BASE_DIR, 'static')]  # ถ้ามี static ของคุณเอง
+
 # SECURITY WARNING: keep the secret key used in production secret!
 SECRET_KEY = 'django-insecure-r-iv&ksfr*427&f&&)5o^x0l$mh4%#)ljh(&(+jn-o71+0(wsa'
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['sheethub-backend.onrender.com','SheetHub-frontend.onrender.com', 'localhost', '127.0.0.1']
 
 
 # Application definition
@@ -76,6 +80,9 @@ DATABASES = {
         'PASSWORD': os.environ.get("POSTGRES_PASSWORD", "aeafa3YAzIeYMxees6adnY22EEY8TVOC"),
         'HOST': os.environ.get("POSTGRES_HOST", "dpg-d0jjbp63jp1c73a0gm7g-a.singapore-postgres.render.com"),
         'PORT': os.environ.get("POSTGRES_PORT", "5432"),
+        'OPTIONS': {
+            'sslmode': 'require'
+        }
     }
 }
 
