@@ -4,8 +4,7 @@ services:
     env: docker
     plan: free
     region: singapore
-    dockerfilePath: backend/Dockerfile          # ✅ ชี้ไปยัง Dockerfile ตรงตำแหน่ง
-    buildFilterPath: backend                    # ✅ context จะเห็น requirements.txt ได้
+    dockerfilePath: backend/Dockerfile
     envVars:
       - key: POSTGRES_DB
         value: postgres_cn334_final_project
