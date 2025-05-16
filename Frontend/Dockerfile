@@ -1,23 +1,31 @@
-# ใช้ Node.js base image
-FROM node:18-alpine
+# --- Step 1: Build Stage ---
+FROM node:18-alpine AS builder
 
-# สร้าง directory สำหรับ app
 WORKDIR /app
 
-# คัดลอกไฟล์ dependency ก่อน
-COPY package*.json ./
-
-# ติดตั้ง dependencies
+# Install dependencies
+COPY package.json package-lock.json* ./
 RUN npm install
 
-# คัดลอก source code ทั้งหมด
+# Copy project files
 COPY . .
 
-# Build ตัว frontend
+# Build Next.js project
 RUN npm run build
 
-# เปิดพอร์ตสำหรับ next start (default คือ 3000)
-EXPOSE 3000
+# --- Step 2: Production Stage ---
+FROM node:18-alpine AS runner
 
-# รัน production server
+WORKDIR /app
+
+ENV NODE_ENV=production
+
+# Copy only the needed files
+COPY --from=builder /app/public ./public
+COPY --from=builder /app/.next ./.next
+COPY --from=builder /app/node_modules ./node_modules
+COPY --from=builder /app/package.json ./package.json
+COPY --from=builder /app/next.config.mjs ./next.config.mjs
+
+EXPOSE 3000
 CMD ["npm", "start"]
