@@ -2,8 +2,8 @@ services:
   - type: web
     name: cn334-backend
     env: docker
-    dockerfilePath: backend/Dockerfile   # ✅ ชี้ไปที่ตำแหน่งใหม่
-    buildFilterPath: backend             # ✅ ใช้ backend เป็น context
+    dockerfilePath: backend/Dockerfile   
+    buildFilterPath: backend      
     envVars:
       - key: POSTGRES_DB
         value: postgres_cn334_final_project
@@ -12,12 +12,11 @@ services:
       - key: POSTGRES_PASSWORD
         value: aeafa3YAzIeYMxees6adnY22EEY8TVOC
       - key: POSTGRES_HOST
-        value: dpg-d0jjbp63jp1c73a0gm7g-a
+        value: dpg-d0jjbp63jp1c73a0gm7g-a.singapore-postgres.render.com
       - key: POSTGRES_PORT
         value: 5432
       - key: SECRET_KEY
         value: thisISecretKey555
-
 
   - type: web
     name: cn334-frontend
@@ -28,4 +27,3 @@ services:
     envVars:
       - key: NEXT_PUBLIC_API_URL
         value: https://cn334-backend.onrender.com/api
-
