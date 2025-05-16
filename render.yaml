@@ -7,17 +7,17 @@ services:
     dockerfilePath: Backend/Dockerfile
     envVars:
       - key: POSTGRES_DB
-        value: <ชื่อ database จาก Render>
+        value: postgres_cn334_final_project
       - key: POSTGRES_USER
-        value: <user จาก Render>
+        value: postgres_cn334_final_project_user
       - key: POSTGRES_PASSWORD
-        value: <password จาก Render>
+        value: aeafa3YAzIeYMxees6adnY22EEY8TVOC
       - key: POSTGRES_HOST
-        value: <hostname จาก Render เช่น dpg-xxx.render.com>
+        value: dpg-d0jjbp63jp1c73a0gm7g-a
       - key: POSTGRES_PORT
         value: 5432
       - key: SECRET_KEY
-        value: <secret ของคุณ>
+        value: thismyVerySecretKey555
 
   - type: web
     name: cn334-frontend
