@@ -2,9 +2,8 @@ services:
   - type: web
     name: cn334-backend
     env: docker
-    plan: free
-    region: singapore
     dockerfilePath: Backend/Dockerfile
+    buildFilterPath: Backend
     envVars:
       - key: POSTGRES_DB
         value: postgres_cn334_final_project
@@ -17,7 +16,8 @@ services:
       - key: POSTGRES_PORT
         value: 5432
       - key: SECRET_KEY
-        value: thismyVerySecretKey555
+        value: thisISecretKey555
+
 
   - type: web
     name: cn334-frontend
