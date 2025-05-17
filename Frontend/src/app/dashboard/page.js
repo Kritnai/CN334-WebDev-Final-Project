@@ -75,12 +75,21 @@ export default function Dashboard() {
         }
 
         try {
-            const res = await axios.post(API_IP + `/api/dashboard/`,null, config);
+            const res = await axios.post(API_IP + `/api/dashboard/`, null, config);
             console.log('sheet:', res.data);
             setSheet(res.data.sheets); // <- ระวังชื่อ key ต้องตรงกับ API
         } catch (err) {
             console.error('can not get sheet:', err);
         }
+
+        try {
+            const res = await axios.get(API_IP + `/api/my_cart/`, config);
+            console.log('cart:', res.data);
+            setUser(res.data.user)
+        } catch (err) {
+            console.error('can not get subject:', err);
+        }
+
     };
 
     const onLogout = async () => {
@@ -149,7 +158,7 @@ export default function Dashboard() {
                     gap: '10px'
                 }}>
                     <h4 style={{}}>{sheet.subject_code || initSheet[0].subject_code}</h4>
-                    <p style={{}}>{sheet.name||initSheet[0].name}</p>
+                    <p style={{}}>{sheet.name || initSheet[0].name}</p>
                 </div>
             </div>
 
@@ -157,7 +166,7 @@ export default function Dashboard() {
             {/* ✅ ปุ่มดาวน์โหลด (ลอย) */}
             <div className="download-button">
                 <a
-                    href={`/pdfs/${sheet.pdf||initSheet[0].pdf}`}
+                    href={`/pdfs/${sheet.pdf || initSheet[0].pdf}`}
                     download
                     target="_blank"
                 >
@@ -225,40 +234,40 @@ export default function Dashboard() {
 
                     {/* ชื่อผู้ใช้ชิดขวา */}
                     <div style={{
-                            display: 'flex',
-                            justifyContent: 'flex-end',
-                            alignItems: 'flex-end',
-                            width: '100%',
-                            // backgroundColor:'green'
-                        }}>
-                        
-                    <button
-                        onClick={() => { onLogout() }}
-                        style={{
-                            background: 'none',
-                            border: 'none',
-                            color: RED_COLOR,
-                            fontWeight: 'bold',
-                            cursor: 'pointer',
-                            // width: "100%",
-                            height: "10%",
+                        display: 'flex',
+                        justifyContent: 'flex-end',
+                        alignItems: 'flex-end',
+                        width: '100%',
+                        // backgroundColor:'green'
+                    }}>
 
-                            display: 'flex',
-                            justifyContent: 'flex-end',
-                            alignItems: 'flex-start',
-                            padding: '10px',
-                            // backgroundColor:'red'
-                        }}
+                        <button
+                            onClick={() => { onLogout() }}
+                            style={{
+                                background: 'none',
+                                border: 'none',
+                                color: RED_COLOR,
+                                fontWeight: 'bold',
+                                cursor: 'pointer',
+                                // width: "100%",
+                                height: "10%",
+
+                                display: 'flex',
+                                justifyContent: 'flex-end',
+                                alignItems: 'flex-start',
+                                padding: '10px',
+                                // backgroundColor:'red'
+                            }}
                         >
-                        ออกจากระบบ
-                    </button>
-                        </div>
+                            ออกจากระบบ
+                        </button>
+                    </div>
                     <div style={{
                         display: 'flex',
                         justifyContent: 'flex-end',
                         marginBottom: '5px',
                     }}>
-                        <h2 style={{ margin: 0, fontWeight: 'bold' }}>{user.name}</h2>
+                        <h2 style={{ margin: 0, fontWeight: 'bold' }}>สวัสดี {user.username || mockUser.name}</h2>
                     </div>
 
                     {/* ช่องค้นหา */}

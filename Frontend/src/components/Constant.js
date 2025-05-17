@@ -6,6 +6,7 @@ export const WHITE_COLOR = "#FFFFFF";
 export const RED_COLOR = "#EE7E50";
 
 // ใช้ environment variable
+// export const API_IP = 'http://127.0.0.1:8000' || 'https://sheethub-backend.onrender.com';
 export const API_IP = 'https://sheethub-backend.onrender.com';
 
 export const CONFIG = () => {
