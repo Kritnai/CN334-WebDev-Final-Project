@@ -1,5 +1,9 @@
 # sheets_service/urls.py
 from django.urls import path
+
+from django.conf import settings
+from django.conf.urls.static import static
+
 from .views import (
     RegisterView, CustomAuthToken, AllSubjectsView, SheetsBySubjectView,
     SheetDetailView, AddToCartView, GetOrderView, DeleteItemView,
@@ -20,6 +24,4 @@ urlpatterns = [
     path('logout/', LogoutView.as_view(), name='logout'), # เพิ่ม URL สำหรับ Logout
     path('order/<int:pk>/', OrderDetailView.as_view(), name='order_detail'), # ใช้ pk สำหรับ order_id
     path('my_cart/', MyCartView.as_view(), name='my_cart'), # <--- URL ใหม่ ไม่ต้องใช้ Cart ID ใน Path
-
-
-]
+]+ static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)

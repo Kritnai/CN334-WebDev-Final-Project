@@ -5,8 +5,8 @@ import os
 BASE_DIR = Path(__file__).resolve().parent.parent
 
 STATIC_URL = '/static/'
-STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')  # สำหรับ collectstatic
 STATICFILES_DIRS = [os.path.join(BASE_DIR, 'static')]  # ถ้ามี static ของคุณเอง
+STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')  # สำหรับ collectstatic
 
 # SECURITY WARNING: keep the secret key used in production secret!
 SECRET_KEY = 'django-insecure-r-iv&ksfr*427&f&&)5o^x0l$mh4%#)ljh(&(+jn-o71+0(wsa'
@@ -110,8 +110,6 @@ USE_I18N = True
 
 USE_TZ = True
 
-
-STATIC_URL = 'static/'
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
