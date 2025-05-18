@@ -76,10 +76,6 @@ export default function Sheet() {
         fetchData();
     }, [subject_id]);
 
-
-
-
-    // ✅ Group data by level
     // const groupedByLevel = mockData.reduce((acc, item) => {
     const groupedByLevel = sheet?.reduce((acc, item) => {
         if (!acc[item.level]) acc[item.level] = []; // ถ้ายังไม่มี key ของระดับชั้นนี้ ให้สร้าง array ว่าง
@@ -96,7 +92,7 @@ export default function Sheet() {
         const year = date.getFullYear();
 
         const formattedDate = `${day}-${month}-${year}`;
-        // console.log(formattedDate); // ✅ "11-05-2025"
+        // console.log(formattedDate); // "11-05-2025"
         return formattedDate
 
     }
@@ -104,17 +100,16 @@ export default function Sheet() {
     const renderSheetCard = (sheet) => (
         <div
             key={sheet.sheet_id}
-            // onClick={() => router.push(`/sheetDetail/${sheet.sheed_id}`)}  // ✅ เปลี่ยนหน้า
             onClick={() =>
                 router.push(`/sheetDetail?sheet_id=${sheet.sheet_id}`)
-            }  // ✅ เปลี่ยนหน้า
+            } 
             className="sheet-card"
             style={{
                 backgroundColor: YELLOW_COLOR,
                 color: WHITE_COLOR,
                 display: "flex",
                 flexDirection: "column",
-                justifyContent: "space-between", // ✅ ดันส่วนล่างไปสุด
+                justifyContent: "space-between",
 
                 display: 'flex',
                 alignItems: "start",
@@ -129,7 +124,7 @@ export default function Sheet() {
                 className='contend'
                 style={{
                     padding: "10px",
-                    flexGrow: 1, // ✅ ให้เต็มพื้นที่เพื่อดันปุ่มด้านล่าง
+                    flexGrow: 1,
                 }}
             >
 

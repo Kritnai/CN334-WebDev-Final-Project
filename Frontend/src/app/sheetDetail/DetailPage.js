@@ -88,7 +88,7 @@ export default function SheetDetail() {
                 console.error(err);
                 if (err.response.data.detail === 'Invalid token.' || err.response.data.detail === 'Token has expired.') {
                     alert("กรุณาเข้าสู่ระบบใหม่อีกครั้ง");
-                    router.push('/login'); // ✅ ทำงานต่อหลัง alert ถูกปิด
+                    router.push('/login'); 
 
                 } else {
                     alert("เกิดข้อผิดพลาดในการเพิ่มชีท");

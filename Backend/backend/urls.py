@@ -24,5 +24,4 @@ urlpatterns = [
     path('admin/', admin.site.urls),
     path('api/', include('sheets_service.urls')), # รวม URLs ของแอปของคุณไว้ใต้ /api/
 ]
-# ✅ เสริมนี้เข้าไป (แม้จะ DEBUG=False)
 urlpatterns += static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)

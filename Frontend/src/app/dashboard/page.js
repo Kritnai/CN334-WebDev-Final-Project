@@ -58,7 +58,6 @@ export default function Dashboard() {
 
     const [sheets, setSheets] = useState(initSheet);
 
-
     useEffect(() => {
         fetchCart();
     }, []);
@@ -116,7 +115,6 @@ export default function Dashboard() {
                 }
                 router.push('/login');
             })
-
     }
 
     const renderSheetCard = (sheet) => (

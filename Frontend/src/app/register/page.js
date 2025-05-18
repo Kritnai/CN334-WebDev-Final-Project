@@ -39,7 +39,6 @@ export default function Register() {
         } catch (err) {
             const errors = err.response?.data;
 
-            // ✅ วนลูป key เช่น username, email, password
             for (let field in errors) {
                 if (Array.isArray(errors[field])) {
                     errors[field].forEach(msg => toast.error(`${field}: ${msg}`));

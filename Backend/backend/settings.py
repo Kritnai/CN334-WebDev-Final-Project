@@ -1,21 +1,18 @@
 
 from pathlib import Path
 import os
-# Build paths inside the project like this: BASE_DIR / 'subdir'.
+
 BASE_DIR = Path(__file__).resolve().parent.parent
 
 STATIC_URL = '/static/'
-STATICFILES_DIRS = [os.path.join(BASE_DIR, 'static')]  # ถ้ามี static ของคุณเอง
-STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')  # สำหรับ collectstatic
+STATICFILES_DIRS = [os.path.join(BASE_DIR, 'static')] 
+STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles') 
 
-# SECURITY WARNING: keep the secret key used in production secret!
 SECRET_KEY = 'django-insecure-r-iv&ksfr*427&f&&)5o^x0l$mh4%#)ljh(&(+jn-o71+0(wsa'
 
-# SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
 ALLOWED_HOSTS = ['sheethub-backend.onrender.com','SheetHub-frontend.onrender.com', 'localhost', '127.0.0.1']
-
 
 # Application definition
 INSTALLED_APPS = [
@@ -25,9 +22,9 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-    'rest_framework', # เพิ่มบรรทัดนี้
+    'rest_framework',
     'sheets_service', 
-    'rest_framework.authtoken', # <--- ต้องมีบรรทัดนี้
+    'rest_framework.authtoken',
     'corsheaders',
 
 ]
@@ -115,14 +112,13 @@ DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
 REST_FRAMEWORK = {
     'DEFAULT_AUTHENTICATION_CLASSES': [
-        'sheets_service.authentication.ExpiringTokenAuthentication', # สมมติว่าไฟล์ชื่อ authentication.py
-        'rest_framework.authentication.SessionAuthentication', # อาจจะยังคง Session Auth ไว้ก็ได้
-        'rest_framework.authentication.BasicAuthentication', # อาจจะยังคง Basic Auth ไว้ก็ได้
+        'sheets_service.authentication.ExpiringTokenAuthentication', 
+        'rest_framework.authentication.SessionAuthentication', 
+        'rest_framework.authentication.BasicAuthentication', 
     ],
     'DEFAULT_PERMISSION_CLASSES': [
-        'rest_framework.permissions.IsAuthenticated', # ตัวอย่าง: กำหนด default ให้ต้องล็อกอิน
+        'rest_framework.permissions.IsAuthenticated',
     ],
-    # ... การตั้งค่าอื่นๆ ของ DRF ...
 }
 
 AUTH_TOKEN_MODEL = 'sheets_service.ExpiringToken'
